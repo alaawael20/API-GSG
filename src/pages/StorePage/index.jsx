@@ -6,7 +6,7 @@ import { PATHS } from '../../router/paths';
 
 class StorePage extends Component {
   state = {
-    post: null,
+    store: null,
     isLoading: true,
     isEditing: false,
   };
@@ -21,7 +21,7 @@ class StorePage extends Component {
   componentDidMount() {
     fetch(`https://some-data.onrender.com/stores/${this.id}`)
       .then((response) => response.json())
-      .then((data) => this.setState({ post: data, isLoading: false }));
+      .then((data) => this.setState({ store: data, isLoading: false }));
   }
 
   render() {
@@ -31,14 +31,14 @@ class StorePage extends Component {
           <p>Loading...</p>
         ) : (
           <>
-            <h1>Post {this.state.post.id}</h1>
-            <h2>{this.state.post?.name}</h2>
-            <p>{this.state.post.cities}</p>
+            <h1>Store {this.state.store.id}</h1>
+            <h2>{this.state.store?.name}</h2>
+            <p>{this.state.store.cities}</p>
           </>
         )}
         <button onClick={this.handleEdit}>Edit</button>
         {this.state.isEditing && (
-          <Navigate to={PATHS.POSTS.EDIT.replace(':id', this.id)} replace />
+          <Navigate to={PATHS.STORES.EDIT.replace(':id', this.id)} replace />
         )}
       </Container>
     );

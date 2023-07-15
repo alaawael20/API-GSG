@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
+import './style.css'
 import axios from 'axios';
 import Table from '../../components/Table';
 import { Navigate } from 'react-router-dom';
 import { PATHS } from '../../router/paths';
 import { STORES_COLUMNS } from '../../constants/stores';
+import { Container } from './../../components/Container/index';
 
 class StoresPage extends Component {
   state = {
-    posts: [],
+    stores: [],
     isLoading: true,
   };
 
   componentDidMount() {
     fetch('https://some-data.onrender.com/stores')
       .then((response) => response.json())
-      .then((data) => this.setState({ posts: data, isLoading: false }));
+      .then((data) => this.setState({ stores: data, isLoading: false }));
   }
 
   handleDelete = async (id) => {
@@ -38,7 +40,7 @@ class StoresPage extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <h1>Stores</h1>
 
         <button onClick={() => this.setState({ isCreating: true })}>
@@ -47,7 +49,7 @@ class StoresPage extends Component {
 
         <Table
           columns={STORES_COLUMNS(this.handleDelete, this.handleEdit)}
-          data={this.state.posts}
+          data={this.state.stores}
           onRowClick={this.handleView}
           isLoading={this.state.isLoading}
         />
@@ -55,12 +57,12 @@ class StoresPage extends Component {
         {this.state.rowId && <Navigate to={`${this.state.rowId}`} replace />}
         {this.state.editId && (
           <Navigate
-            to={PATHS.POSTS.EDIT.replace(':id', this.state?.editId)}
+            to={PATHS.STORES.EDIT.replace(':id', this.state?.editId)}
             replace
           />
         )}
-        {this.state?.isCreating && <Navigate to={PATHS.POSTS.CREATE} replace />}
-      </div>
+        {this.state?.isCreating && <Navigate to={PATHS.STORES.CREATE} replace />}
+      </Container>
     );
   }
 }

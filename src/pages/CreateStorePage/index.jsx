@@ -12,10 +12,10 @@ class CreateStorePage extends Component {
     isGoToListPage: false,
   };
 
-  handleCreatePost = async (body) => {
+  handleCreateStore = async (body) => {
     this.setState({ isLoading: true });
     try {
-      const res = await axios.post(
+      const res = await axios.store(
         'https://some-data.onrender.com/stores',
         body
       );
@@ -32,14 +32,14 @@ class CreateStorePage extends Component {
     return (
       <div>
         <Container>
-          <H1>Create Post</H1>
+          <H1>Create Store</H1>
 
           <StoreForm
-            handleSubmit={this.handleCreatePost}
+            handleSubmit={this.handleCreateStore}
             isLoading={this.state.isLoading}
           />
         </Container>
-        {this.state.isGoToListPage && <Navigate to={PATHS.POSTS.ROOT} />}
+        {this.state.isGoToListPage && <Navigate to={PATHS.STORES.ROOT} />}
       </div>
     );
   }

@@ -16,7 +16,7 @@ class Header extends React.Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to={PATHS.POSTS.ROOT}>
+              <NavLink to={PATHS.STORES.ROOT}>
                 {({ isActive, isPending }) =>
                   isActive ? <u>Stores</u> : 'Stores'
                 }

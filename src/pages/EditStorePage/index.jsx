@@ -9,7 +9,7 @@ import StoreForm from '../../components/StoreForm';
 
 class EditStorePage extends Component {
   state = {
-    post: null,
+    store: null,
     isLoading: true,
     isGotToListPage: false,
   };
@@ -19,10 +19,10 @@ class EditStorePage extends Component {
   componentDidMount() {
     fetch(`https://some-data.onrender.com/stores/${this.id}`)
       .then((response) => response.json())
-      .then((data) => this.setState({ post: data, isLoading: false }));
+      .then((data) => this.setState({ store: data, isLoading: false }));
   }
 
-  handleEditPost = async (body) => {
+  handleEditstore = async (body) => {
     this.setState({ isLoading: true });
     try {
       const res = await axios.put(
@@ -31,7 +31,7 @@ class EditStorePage extends Component {
       );
       console.log(res.data);
       this.setState({
-        post: res.data,
+        store: res.data,
         isLoading: false,
         isGotToListPage: true,
       });
@@ -44,17 +44,17 @@ class EditStorePage extends Component {
     return (
       <div>
         <Container>
-          <H1>Edit Post {this.id}</H1>
+          <H1>Edit Store {this.id}</H1>
 
           <StoreForm
-            post={this.state.post}
-            handleSubmit={this.handleEditPost}
+            store={this.state.store}
+            handleSubmit={this.handleEditstore}
             isLoading={this.state.isLoading}
           />
         </Container>
 
         {this.state.isGotToListPage && (
-          <Navigate to={PATHS.POSTS.ROOT} replace />
+          <Navigate to={PATHS.STORES.ROOT} replace />
         )}
       </div>
     );

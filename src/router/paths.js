@@ -1,10 +1,10 @@
 export const PATHS = {
   HOME: '/',
-  POSTS: {
-    ROOT: '/posts',
-    VIEW: `/posts/:id`,
-    CREATE: '/posts/create',
-    EDIT: '/posts/:id/edit',
+  STORES: {
+    ROOT: '/stores',
+    VIEW: `/stores/:id`,
+    CREATE: '/stores/create',
+    EDIT: '/stores/:id/edit',
   },
 
   ERRORS: {

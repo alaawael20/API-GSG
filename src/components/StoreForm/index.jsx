@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css'
 
 const inputsArray = [
   {
@@ -33,10 +34,10 @@ class StoreForm extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    if (props.post && state.isGetFirstTimeData) {
+    if (props.store && state.isGetFirstTimeData) {
       return {
-        name: props.post.name,
-        cities: props.post.cities,
+        name: props.store.name,
+        cities: props.store.cities,
         isGetFirstTimeData: false,
       };
     }
@@ -52,7 +53,7 @@ class StoreForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         {inputsArray.map((input) => (
-          <div key={input.id}>
+          <div className='inputForm' key={input.id}>
             <label htmlFor={input.id}>{input.label}</label>
             {input.type === 'textarea' ? (
               <textarea
