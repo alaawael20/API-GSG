@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/API-GSG/static/css/main.b657bebb.css",
+    "main.js": "/API-GSG/static/js/main.5520c4ff.js",
+    "index.html": "/API-GSG/index.html",
+    "main.b657bebb.css.map": "/API-GSG/static/css/main.b657bebb.css.map",
+    "main.5520c4ff.js.map": "/API-GSG/static/js/main.5520c4ff.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b657bebb.css",
+    "static/js/main.5520c4ff.js"
+  ]
+}
