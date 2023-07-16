@@ -10,7 +10,7 @@ import CreateStorePage from '../pages/CreateStorePage';
 const Router = () => {
   return (
     <Routes>
-      <Route index element={<HomePage />} />
+      <Route index path='/' element={<HomePage />} />
       <Route path={PATHS.STORES.ROOT} element={<Outlet />}>
         <Route index element={<StoresPage />} />
         <Route path={PATHS.STORES.VIEW} element={<StorePage />} />
