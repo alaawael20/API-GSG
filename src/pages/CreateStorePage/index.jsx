@@ -15,7 +15,7 @@ class CreateStorePage extends Component {
   handleCreateStore = async (body) => {
     this.setState({ isLoading: true });
     try {
-      const res = await axios.store(
+      const res = await axios.post(
         'https://some-data.onrender.com/stores',
         body
       );
